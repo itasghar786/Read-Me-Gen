@@ -51,12 +51,27 @@ const qustions =[
 
 
                                 function init() {
-                                    inquirer.prompt(qustions);
-                                    console.log("");
+                                    inquirer.prompt(qustions).then(function ({username}){
+
+                                      const url = `https://api.github.com/users/${username}`;
+                                      axios.get(url).then (function(res){
+                                        console.log(res);
+                                        
+                                    })});
+
+
+                                     // const html = generateHTML(response);
+
+                                      //return writeFileAsync ("generateMarkdown.js",html )
+                                    }
+
+                                    //console.log("");
+
+
 
                                     
 
-                                }
+                                
                                 
                                 init();
 
